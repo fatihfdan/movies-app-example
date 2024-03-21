@@ -1,10 +1,12 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: sans-serif;
 }
 
 .App {
-  margin: 1.5rem;
+  padding: 1.5rem;
+  background-color: rgb(50, 50, 103);
 }
 
 .movies {
@@ -12,14 +14,10 @@
   flex-wrap: wrap;
 }
 
-.info {
-  display: flex;
-  justify-content: space-between;
-}
-
 .search_nav {
   display: flex;
   align-items: center;
+  padding-bottom: 1.5rem;
 }
 
 .title {
