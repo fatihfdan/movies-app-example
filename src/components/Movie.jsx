@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 function Movie() {
-  const [movieList, setMovieList] = useState([]);
+  const [movies, setMovies] = useState([]);
+
   const getMovie = () => {
     fetch(
       "https://api.themoviedb.org/3/discover/movie?api_key=1e31e940b34b9de92c3a0afe8f933b38"
@@ -16,6 +17,8 @@ function Movie() {
 
   console.log(movieList);
 
+  const movies = { ...movieList };
+
   return (
     <div>
       {movieList.map((movie) => (
@@ -29,6 +32,7 @@ function Movie() {
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         />
       ))}
+      <p>{movie.title}</p>
     </div>
   );
 }
