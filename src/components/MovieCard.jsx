@@ -7,7 +7,7 @@ function MovieCard(props) {
   return (
     <div className="card">
       <div className="poster">
-        <img src={API_IMG + props.poster_path} />
+        <img src={API_IMG + props.poster_path} className="poster-img" />
       </div>
       <div className="info">
         <p className="title">{props.title}</p>

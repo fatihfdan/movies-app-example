@@ -3,7 +3,25 @@
   margin: 0;
 }
 
+.App {
+  margin: 1.5rem;
+}
+
 .movies {
   display: flex;
   flex-wrap: wrap;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search_nav {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  padding-right: 3rem;
 }

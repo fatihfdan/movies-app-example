@@ -1,14 +1,15 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import MovieCard from "./components/MovieCard";
+import MovieCard from "./components/MovieCard.jsx";
 
 function App() {
   const API_URL =
     "https://api.themoviedb.org/3/discover/movie?api_key=1e31e940b34b9de92c3a0afe8f933b38";
   const API_SEARCH =
-    "https://api.themoviedb.org/3/search/movie?api_key=1e31e940b34b9de92c3a0afe8f933b38";
+    "https://api.themoviedb.org/3/search/movie?api_key=1e31e940b34b9de92c3a0afe8f933b38&query=";
 
   const [movies, setMovies] = useState([]);
+  const [term, setTerm] = useState("");
 
   useEffect(() => {
     fetch(API_URL)
@@ -21,7 +22,9 @@ function App() {
   const handleSearch = (e) => {
     e.preventDefault();
 
-    fetch(API_SEARCH);
+    fetch(API_SEARCH + term)
+      .then((res) => res.json())
+      .then((data) => setMovies(data.results));
   };
 
   return (
@@ -33,7 +36,7 @@ function App() {
 
         <div>
           <form onSubmit={handleSearch}>
-            <input />
+            <input onChange={(e) => setTerm(e.target.value)} />
             <button>Search</button>
           </form>
         </div>
