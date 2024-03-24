@@ -1,10 +1,10 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import MovieCard from "./components/MovieCard.jsx";
 
 function App() {
   const API_URL =
     "https://api.themoviedb.org/3/discover/movie?api_key=1e31e940b34b9de92c3a0afe8f933b38";
+
   const API_SEARCH =
     "https://api.themoviedb.org/3/search/movie?api_key=1e31e940b34b9de92c3a0afe8f933b38&query=";
 
@@ -44,7 +44,7 @@ function App() {
 
       <div className="movies">
         {movies.map((movie) => (
-          <MovieCard {...movie} />
+          <MovieCard key={movie.id} {...movie} />
         ))}
       </div>
     </div>
