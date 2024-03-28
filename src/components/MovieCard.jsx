@@ -10,7 +10,7 @@ function MovieCard({ poster_path, title, vote_average }) {
       </div>
       <div className="info">
         <p className="title">{title}</p>
-        <p className="vote">{vote_average}</p>
+        <p className="vote">{vote_average.toFixed(1)}</p>
       </div>
     </div>
   );
