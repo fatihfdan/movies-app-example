@@ -10,21 +10,30 @@ function App() {
 
   const [movies, setMovies] = useState([]);
   const [term, setTerm] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     fetch(API_URL)
       .then((res) => res.json())
       .then((data) => setMovies(data.results));
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   }, []);
 
   console.log(movies);
 
   const handleSearch = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     fetch(API_SEARCH + term)
       .then((res) => res.json())
       .then((data) => setMovies(data.results));
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   };
 
   return (
@@ -41,6 +50,12 @@ function App() {
           </form>
         </div>
       </div>
+
+      {loading && (
+        <div className="loading-overlay">
+          <div className="loading-message">Loading...</div>
+        </div>
+      )}
 
       <div className="movies">
         {movies.map((movie) => (
